@@ -79,3 +79,23 @@ Neste tópico, deixei algumas informações importantes sobre o exame.
     * Hierarquia.
     * Escopo das variáveis.
     * Sobrecarga.
+
+# 2. Dicas para o exame
+## 2.1. Quantidade de respostas
+
+Cada uma das questões do exame irão indicar a quantidade de questões a serem assinaladas. Escolher a resposta incorreta não reduz pontos da prova.
+
+## 2.2. Excessões à regra
+
+Para questões que temos pouco conhecimento sobre o assunto, e através de eliminação, chegamos a mais de uma questão, devemos considerar se existe alguma possibilidade de haver uma excessão às afirmações que temos a disposição.
+
+Por exemplo, supondo que nas duas afirmações a seguir sejam as únicas respostas plausíveis de uma das questões:
+
+> a) "You **cannot** do X in Java".  
+> b) "You **should** not do X in Java".
+
+Ambas indicam para não se fazer algo em Java: a primeira diz que você não **pode** fazer algo; a segunda diz que você não **deveria**.
+
+Respostas como a primeira induzem o entendimento de que não é permitido que algo seja feito, sobre todas as hipóteses. Respostas como a segunda, indicam que algo não deveria ser feito, abrindo margem para que existam excessões à regra.
+
+Respostas como a segunda são preferíveis no "chute", pelo fato de darem margem à exceções que provavelmente existem.
