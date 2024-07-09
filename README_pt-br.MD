@@ -99,3 +99,11 @@ Ambas indicam para não se fazer algo em Java: a primeira diz que você não **p
 Respostas como a primeira induzem o entendimento de que não é permitido que algo seja feito, sobre todas as hipóteses. Respostas como a segunda, indicam que algo não deveria ser feito, abrindo margem para que existam excessões à regra.
 
 Respostas como a segunda são preferíveis no "chute", pelo fato de darem margem à exceções que provavelmente existem.
+
+# Conceitos citados pelo livro para entender melhor.
+- [ ] `Facelets`.
+- [ ] Diferença entre as linguagens procedurais e funcionais.
+- [ ] Java `RMI`.
+
+# Fontes
+- [OCFA Java Foundations Exam Fundamentals 1Z0-811: Study guide for Oracle Certified Foundations Associate, Java Certification](https://www.amazon.com/OCFA-Java-Foundations-Fundamentals-1Z0-811-ebook/dp/B08MVSBV86).
