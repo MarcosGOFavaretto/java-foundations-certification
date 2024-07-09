@@ -14,7 +14,7 @@ Neste tópico, deixei algumas informações importantes sobre o exame.
 - Quantidade de questões: 75.
 - Quantidade mínima de acertos: 65% (aproximadamente, 49 questões).
 - Formato das questões: múltipla escolha.
-- Preço: R$ 0.000,00 <TODO>
+- Preço: R$ 0.000,00 (TODO)
 
 ## 1.2. Conteúdo
 
@@ -100,7 +100,7 @@ Respostas como a primeira induzem o entendimento de que não é permitido que al
 
 Respostas como a segunda são preferíveis no "chute", pelo fato de darem margem à exceções que provavelmente existem.
 
-# Conceitos citados pelo livro para entender melhor.
+# Conceitos citados pelo livro para entender melhor
 - [ ] `Facelets`.
 - [ ] Diferença entre as linguagens procedurais e funcionais.
 - [ ] Java `RMI`.
