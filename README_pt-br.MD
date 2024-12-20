@@ -62,7 +62,7 @@ Neste tópico, deixei algumas informações importantes sobre o exame.
     * Conversão de dados.
     * Variáveis `String`.
 * `String`
-    * Formatação (`%d`, `%n`, etc.
+    * Formatação (`%d`, `%n`), etc.
 * Estruturas de decisão.
     * `if` e `if-else`
     * `switch`
@@ -85,7 +85,7 @@ Neste tópico, deixei algumas informações importantes sobre o exame.
 
 Cada uma das questões do exame irão indicar a quantidade de questões a serem assinaladas. Escolher a resposta incorreta não reduz pontos da prova.
 
-## 2.2. Excessões à regra
+## 2.2. Exceções à regra
 
 Para questões que temos pouco conhecimento sobre o assunto, e através de eliminação, chegamos a mais de uma questão, devemos considerar se existe alguma possibilidade de haver uma excessão às afirmações que temos a disposição.
 
@@ -104,7 +104,7 @@ Respostas como a segunda são preferíveis no "chute", pelo fato de darem margem
 
 A `POO` é um paradigma de programação que consiste na criação de aplicações que relacionam objetos reais. Por exemplo: o carro e o motorista, o televisor e a pessoa, etc.
 
-Em java, os objetos são representados por classes, com `fields` que representam suas características e métodos, que dita a forma que um objeto se relaciona com outro.
+Em java, os objetos são representados por classes, com `fields` que representam suas características e métodos, que ditar a forma como um objeto se relaciona com outro.
 
 ## 3.1. Abstração
 O processo de analisar as entidades do mundo real, tomando suas características e forma que se relacionam, no contexto da aplicação que está sendo desenvolvida é chamado de **abstração**.
@@ -149,7 +149,7 @@ Note que estas entidades podem ter inúmeras outras características e formas de
 
 Um funcionário precisa vender para um cliente que deseja comprar. A forma que um funcionário vende não importa para o cliente, contanto que sua a venda seja concretizada. O mesmo se aplica à tosagem e lavagem dos pets.
 
-Este é o conceito de **encapsulamento**: esconder informações que não precisam estar expostas. Logo, o cliente deveria ser capaz de utilizar o método `tosarMeuPet`, mas a forma que a tosagem é feita não interessa à ele.
+Este é o conceito de **encapsulamento**: esconder informações que não precisam estar expostas. Logo, o cliente deveria ser capaz de utilizar o método `tosarMeuPet`, mas a forma que a tosagem é feita não interessa a ele.
 
 Observando o negócio que estamos trabalhando, podemos notar algumas características iguais entre as entidades: nome, endereço e contato. Utilizando o conceito de **herança**, podemos concentrar estas características semelhantes em um só local, para evitar que ela precise ser declarada mais de uma vez no nosso código. Logo, teríamos as seguintes classes:
 
@@ -215,7 +215,7 @@ public class Cliente extends Pessoa {
 
 Aqui, conseguimos observar que um cliente **é uma** pessoa, bem como o funcionário.
 
-Tudo bem, defini quais são as relações, mas e agora? como às utilizo?
+Tudo bem, defini quais são as relações, mas e agora? como as utilizo?
 
 Para isso, criarei aqui a classe principal da minha aplicação, onde as entidades serão relacionadas.
 
@@ -223,7 +223,7 @@ Para isso, criarei aqui a classe principal da minha aplicação, onde as entidad
 public class MyPetApp {
     public static void main(String[] args) {
 
-        // Instanciando as entidades de formato já expecificado.
+        // Instanciando as entidades de formato já especificado.
         Fornecedor exemploFornecedor = new Fornecedor("José", "Rua dos Bobos, 0, Nárnia, Brasil", "jose@pets.com.br", 15000.00, "Faz tudo");
 
         Cliente exemploCliente = new Cliente("Paula", "Rua dos Boi Bumbá, 70, Nárnia, Brasil", "paula@paula.com.br");
