@@ -2,7 +2,7 @@
 
 Este repositório tem o único propósito de armazenar informações que tomei nota durante meus estudos para a realização da _Java Foundations Certification (1Z0-811)_ da _Oracle_.
 
-Todas as fontes dos conhecimentos aqui presentes estão citadas ao final deste arquivo. Recomendo fortemente que estude por elas, tendo em vista que alguns conhecimentos podem ter sido ocultados deste _README_, pelo fato de eu já os ter de forma concreta.
+Todas as fontes dos conhecimentos aqui presentes estão citadas ao final deste arquivo. Recomendo fortemente que estude por elas, tendo em vista que alguns conhecimentos podem ter sido ocultados deste _README_.
 
 # 1. Informações sobre o exame
 
@@ -99,6 +99,151 @@ Ambas indicam para não se fazer algo em Java: a primeira diz que você não **p
 Respostas como a primeira induzem o entendimento de que não é permitido que algo seja feito, sobre todas as hipóteses. Respostas como a segunda, indicam que algo não deveria ser feito, abrindo margem para que existam excessões à regra.
 
 Respostas como a segunda são preferíveis no "chute", pelo fato de darem margem à exceções que provavelmente existem.
+
+# 3. Princípios de Programação Orientada a Objetos (POO)
+
+A `POO` é um paradigma de programação que consiste na criação de aplicações que relacionam objetos reais. Por exemplo: o carro e o motorista, o televisor e a pessoa, etc.
+
+Em java, os objetos são representados por classes, com `fields` que representam suas características e métodos, que dita a forma que um objeto se relaciona com outro.
+
+## 3.1. Abstração
+O processo de analisar as entidades do mundo real, tomando suas características e forma que se relacionam, no contexto da aplicação que está sendo desenvolvida é chamado de **abstração**.
+
+## 3.2. Encapsulação
+Na OOP, buscamos expor às demais entidades da aplicação somente aquilo (atributo ou ação) que seja pertinente. Não dar detalhes da implementação dos atributos (`fields`) ou ações (`métodos`) de uma entidade garante que o relacionamento dela com outras não sejam pautados na forma que ela se comporta com seus dados, evitando a criação de interdependência entre as entidades.
+
+Como dito pelo autor [Hanumant Deshmukh](https://www.amazon.com/OCFA-Java-Foundations-Fundamentals-1Z0-811-ebook/dp/B08MVSBV86):
+> "An entity should only expose the "what" and not the "how"."
+
+Em java, a ocultação é feita através de palavras-chave que precedem a definição dos atributos e métodos das classes.
+
+| Palavra-chave | Classe | Pacote | Classes filhas | Global |
+| :-----------: | :----: | :----: | :------------: | :----: |
+| `private` | ✓ | X | X | X |
+| `default` | ✓ | ✓ | X | X |
+| `protected` | ✓ | ✓ | ✓ | X |
+| `public` | ✓ | ✓ | ✓ | ✓ |
+
+## 3.3. Herança
+A herança é a prática de concentrar características ou ações semelhantes entre entidades como sendo um objeto mais abstrato.
+
+Frequentemente, utilizamos o conceito "é um" para identificar se uma entidade pode estar relacionada a um destes objetos que conserva as semelhanças.
+
+## 3.4. Polimorfismo
+O polimorfismo é o conceito de "várias formas". Em outras palavras, na POO, uma entidade pode ter vários formatos distintos, mas ainda deve funcionar dentro do contexto da regra de negócios da aplicação.
+
+## 3.5. Exemplo prático
+
+Para compreender os conceitos apresentados anteriormente, vamos acompanhar um caso real (simplificado), e aplicar os quatro pilares da POO nele.
+
+Vamos imaginar que fomos contratados para fazer uma aplicação (simples) para um pet-shop. Nesta empresa, existem dois tipos de pessoas: os funcionários e os clientes. Um cliente pode comprar um ou vários produtos, enquanto é atendido por um dos funcionários.
+
+Aplicando o conceito de **abstração**, podemos observar as seguintes entidades:
+
+| Nome da entidade | Atributos | Ações |
+| ---------------- | --------- | ----- |
+| Funcionário | Nome, endereço, contato, salário e setor. | Vender, tosar (pet) e lavar (pet). |
+| Cliente | Nome, endereço, contato, crédito na loja. | Pagar compras. |
+
+Note que estas entidades podem ter inúmeras outras características e formas de se relacionarem, mas a questão da abstração é levantar somente aquilo que é relevante para a aplicação.
+
+Um funcionário precisa vender para um cliente que deseja comprar. A forma que um funcionário vende não importa para o cliente, contanto que sua a venda seja concretizada. O mesmo se aplica à tosagem e lavagem dos pets.
+
+Este é o conceito de **encapsulamento**: esconder informações que não precisam estar expostas. Logo, o cliente deveria ser capaz de utilizar o método `tosarMeuPet`, mas a forma que a tosagem é feita não interessa à ele.
+
+Observando o negócio que estamos trabalhando, podemos notar algumas características iguais entre as entidades: nome, endereço e contato. Utilizando o conceito de **herança**, podemos concentrar estas características semelhantes em um só local, para evitar que ela precise ser declarada mais de uma vez no nosso código. Logo, teríamos as seguintes classes:
+
+| Nome da entidade | Atributos | Ações | Relação na herança |
+| ---------------- | --------- | ----- | ------------------ |
+| Pessoa | Nome, endereço e contato. | - | Pai |
+| Funcionário | As da Pessoa, salário e setor. | Vender, tosar (pet) e lavar (pet). | Filha |
+| Cliente | As da Pessoa e o crédito na loja. | Pagar compras. | Filha |
+
+Sabemos que o termo "pet" engloba diversos animais. Na nossa aplicação, consideramos que todos eles são iguais, não há distinção para cachorro e gato. Apesar disso, pelo conhecimento que adquirimos durante a nossa formação humana, aprendemos que existe uma diferença gigante entre estes dois animais. Este é o conceito de **polimorfismo**: um pet, pode ser considerado um animal qualquer, ou um animal em específico (gato, cobra, lagarto, etc).
+
+Esta é a aplicação teórica dos conceitos, mas e na prática? Como escrevo isso na minha aplicação em java?
+
+Para a entidade "Pessoa":
+```java
+public class Pessoa {
+    public String nome;
+    public String endereço;
+    public String contato;
+
+    public void cumprimentar() {
+        /* Implementação do método aqui */
+    }
+
+    public void agradecer() {
+        /* Implementação do método aqui */
+    }
+}
+```
+
+Para a entidade "Funcionário":
+```java
+public class Funcionario extends Pessoa {
+    public double salario;
+    public String setor;
+
+    public void vender() {
+        /* Implementação do método aqui */
+    }
+
+    public void tosarPet() {
+        /* Implementação do método aqui */
+    }
+
+    public void lavarPet() {
+        /* Implementação do método aqui */
+    }
+}
+```
+
+Para a entidade "Cliente":
+```java
+public class Cliente extends Pessoa {
+    public double credito;
+
+    public void pagar() {
+        /* Implementação do método aqui */
+    }
+}
+```
+
+> Note que é uma boa prática ocultar os atributos da classe e expor o seu acesso através de métodos. Por intenções didáticas, não realizei a boa prática e não irei abordá-la.
+
+Aqui, conseguimos observar que um cliente **é uma** pessoa, bem como o funcionário.
+
+Tudo bem, defini quais são as relações, mas e agora? como às utilizo?
+
+Para isso, criarei aqui a classe principal da minha aplicação, onde as entidades serão relacionadas.
+
+```java
+public class MyPetApp {
+    public static void main(String[] args) {
+
+        // Instanciando as entidades de formato já expecificado.
+        Fornecedor exemploFornecedor = new Fornecedor("José", "Rua dos Bobos, 0, Nárnia, Brasil", "jose@pets.com.br", 15000.00, "Faz tudo");
+
+        Cliente exemploCliente = new Cliente("Paula", "Rua dos Boi Bumbá, 70, Nárnia, Brasil", "paula@paula.com.br");
+        //
+
+        // Realizando as operações comerciais
+        exemploCliente.cumprimentar();
+        exemploFuncionario.cumprimentar();
+
+        exemploFuncionario.vender();
+        exemploCliente.pagar();
+        exemploFuncionario.agradecer();
+
+        exemploFuncionario.tosarPet();
+        exemploFuncionario.lavarPet();
+        exemploCliente.agradecer();
+        //
+    }
+}
+```
 
 # Conceitos citados pelo livro para entender melhor
 - [ ] `Facelets`.
