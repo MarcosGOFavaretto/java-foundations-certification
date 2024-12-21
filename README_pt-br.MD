@@ -245,6 +245,12 @@ public class MyPetApp {
 }
 ```
 
+# 4. Palavras reservadas
+
+Palavras reservadas são impedidas pelo compilador de serem utilizadas pelo desenvolvedor. Elas são listadas [neste](https://www.w3schools.com/java/java_ref_keywords.asp) artigo da W3 Schools.
+
+> Vale ressaltar que o exame não cobra o uso de todas estas palavras reservadas.
+
 # Conceitos citados pelo livro para entender melhor
 - [ ] `Facelets`.
 - [ ] Diferença entre as linguagens procedurais e funcionais.
