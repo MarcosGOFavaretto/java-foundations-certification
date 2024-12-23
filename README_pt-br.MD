@@ -251,6 +251,61 @@ Palavras reservadas são impedidas pelo compilador de serem utilizadas pelo dese
 
 > Vale ressaltar que o exame não cobra o uso de todas estas palavras reservadas.
 
+# 5. Static and instance blocks
+O Java permite que o desenvolvedor defina comportamentos para uma classe quando ela for carregada pela JVM ou instanciada.
+## 5.1. Static block
+Os blocos estáticos são invocados apenas uma vez durante o ciclo de vida de uma aplicação: quando a JVM carrega a classe.
+
+Sintaxe dos blocos estáticos:
+```java
+public class MyClass {
+
+    static {
+        System.out.println("My class has been loaded!");
+    }
+
+}
+```
+## 5.2. Instance block
+Já os blocos de instâncias são executados sempre durante a instanciação de um novo objeto.
+
+Sintaxe dos blocos de instância:
+```java
+public class ParentClass {
+    protected ParentClass() {}
+}
+
+public class MyClass extends ParentClass {
+
+    {
+        System.out.println("MyClass is being instantiated!");
+    }
+
+    public MyClass() {
+        super();
+        System.out.println("The constructor has finished!");
+    }
+}
+```
+
+Na prática, o compilador do Java replica os blocos de instância, seguindo sua ordem de declaração, em todos os construtores de uma classe, após a invocação do `super()`.
+
+Logo, o exemplo anterior, após a compilação, se torna o mesmo que:
+```java
+public class ParentClass {
+    protected ParentClass() {}
+}
+
+public class MyClass extends ParentClass {
+
+    public MyClass() {
+        super();
+        System.out.println("MyClass is being instanciated!");
+        System.out.println("The constructor has finished!");
+    }
+}
+```
+
 # Conceitos citados pelo livro para entender melhor
 - [ ] `Facelets`.
 - [ ] Diferença entre as linguagens procedurais e funcionais.
