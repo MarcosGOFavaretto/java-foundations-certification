@@ -332,6 +332,21 @@ public class InstanceBlock extends ParentClass {
 //
 ```
 
+# 6. Criando um arquivo JAR
+O JAR é um arquivo compactado que possui as classes necessárias para a execução de uma aplicação.
+
+Geração de um JAR:
+```
+jar -cvf <arquivo.jar> <source-path>
+```
+
+Onde:
+- c: create
+- v: verbose
+- f: output file
+
+Caso haja um `MANIFEST.MD` dentro do jar, especificando qual das classes é a principal, pode-se executar a aplicação com o `java -jar endereco/do/arquivo.jar`
+
 # Conceitos citados pelo livro para entender melhor
 - [ ] `Facelets`.
 - [ ] Diferença entre as linguagens procedurais e funcionais.
