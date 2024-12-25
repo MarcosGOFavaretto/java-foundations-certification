@@ -271,39 +271,65 @@ Já os blocos de instâncias são executados sempre durante a instanciação de 
 
 Sintaxe dos blocos de instância:
 ```java
+// ParentClass.java
 public class ParentClass {
-    protected ParentClass() {}
-}
-
-public class MyClass extends ParentClass {
 
     {
-        System.out.println("MyClass is being instantiated!");
+        System.out.println("A ParentClass instance is beeing initiated!");
     }
 
-    public MyClass() {
-        super();
+    ParentClass(String a) {
+        System.out.println("ParentClass constructor executed!");
+    }
+
+}
+//
+
+// InstanceBlock.java 
+public class InstanceBlock extends ParentClass {
+
+    {
+        System.out.println("InstanceBlock is being instantiated!");
+    }
+
+    public InstanceBlock(String a) {
+        super(a);
         System.out.println("The constructor has finished!");
     }
+
+    public static void main(String... args) {
+        new InstanceBlock("");
+    }
 }
+//
 ```
 
 Na prática, o compilador do Java replica os blocos de instância, seguindo sua ordem de declaração, em todos os construtores de uma classe, após a invocação do `super()`.
 
 Logo, o exemplo anterior, após a compilação, se torna o mesmo que:
 ```java
+// ParentClass.class (decompiled)
 public class ParentClass {
-    protected ParentClass() {}
-}
-
-public class MyClass extends ParentClass {
-
-    public MyClass() {
-        super();
-        System.out.println("MyClass is being instanciated!");
-        System.out.println("The constructor has finished!");
+    ParentClass(String var1) {
+        System.out.println("A ParentClass instance is beeing initiated!");
+        System.out.println("ParentClass constructor executed!");
     }
 }
+//
+
+// InstanceBlock.class (decompiled)
+public class InstanceBlock extends ParentClass {
+    public InstanceBlock(String var1) {
+        super(var1);
+        System.out.println("InstanceBlock is being instantiated!");
+        System.out.println("The constructor has finished!");
+    }
+
+    public static void main(String... var0) {
+        new InstanceBlock("");
+    }
+}
+//
 ```
 
 # Conceitos citados pelo livro para entender melhor
