@@ -347,6 +347,19 @@ Onde:
 
 Caso haja um `MANIFEST.MD` dentro do jar, especificando qual das classes é a principal, pode-se executar a aplicação com o `java -jar endereco/do/arquivo.jar`
 
+# 7. Pacotes padrões do Java
+
+O Java possui diversos pacotes padrões em sua API. Nesta seção, os principais serão brevemente descritos.
+
+| Pacote | Função | Classes importantes |
+| ------ | ------ | ------------------- |
+| `java.lang` | Pacote base para o funcionamento de qualquer aplicação java. Por padrão, ele já está importado em qualquer classe criada. | `Object`, `Math`, `System`, `Runtime` e as `wrapper classes`. |
+| `java.io` | Utilizado para operações de entrada e saída de dados, como a escritura e leitura de arquivos. | `InputStream`, `OutputStream`, `FileReader` e `FileWriter`. |
+| `java.net` | Fornece suporte a comunicações entre sistemas (networking). | `Socket` e `ServerSocket`. |
+| `java.sql` | Permite a comunicação com bancos de dados. | `Connection`, `Statement` e `ResultSet`. |
+| `java.util` | Apresenta ferramentas úteis para trabalhar com alguns tipos de dados. | `Collection`, `List`, `ArrayList`, `HashSet`, `HashMap`, `Date` e `Locale`. |
+| `java.awt` e `java.swing` | Fornecem ferramentas para a criação de interfaces. | `Frame`, `Dialog`, `Button`, `ActionEvent` e `LayoutManager`. |
+
 # Conceitos citados pelo livro para entender melhor
 - [ ] `Facelets`.
 - [ ] Diferença entre as linguagens procedurais e funcionais.
