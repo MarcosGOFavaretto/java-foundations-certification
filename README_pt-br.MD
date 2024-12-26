@@ -360,6 +360,12 @@ O Java possui diversos pacotes padrões em sua API. Nesta seção, os principais
 | `java.util` | Apresenta ferramentas úteis para trabalhar com alguns tipos de dados. | `Collection`, `List`, `ArrayList`, `HashSet`, `HashMap`, `Date` e `Locale`. |
 | `java.awt` e `java.swing` | Fornecem ferramentas para a criação de interfaces. | `Frame`, `Dialog`, `Button`, `ActionEvent` e `LayoutManager`. |
 
+# 8. Iniciação de váriaveis
+
+Variáveis locais devem ser iniciadas pelo desenvolvedor. Quando o compilador consegue determinar que uma variável LOCAL pode não ter sido iniciada no momento de seu uso, uma `exception` é exibida, impedindo que a aplicação seja compilada.
+
+Variáveis não locais são iniciadas automaticamente. Utilizando o valor `0` para números inteiros, `0.0` para números com ponto flutuante, `false` para variáveis booleanas e `null` para as de referência.
+
 # Conceitos citados pelo livro para entender melhor
 - [ ] `Facelets`.
 - [ ] Diferença entre as linguagens procedurais e funcionais.
