@@ -364,7 +364,90 @@ O Java possui diversos pacotes padrões em sua API. Nesta seção, os principais
 
 Variáveis locais devem ser iniciadas pelo desenvolvedor. Quando o compilador consegue determinar que uma variável LOCAL pode não ter sido iniciada no momento de seu uso, uma `exception` é exibida, impedindo que a aplicação seja compilada.
 
+```java
+public class Main {
+    public static void main(String[] args) {
+        int i;
+        System.out.println(i); // An exception will occur at this point.
+    }
+}
+```
+```java
+public class Main {
+    public static void main(String[] args) {
+        int i;
+        int j = 10;
+
+        if (j == 10) {
+            i = 1;
+        }
+
+        System.out.println(i); // An exception will occur at this point.
+    }
+}
+```
+```java
+/* Compiles */
+public class Main {
+    public static void main(String[] args) {
+        int i;
+        int j = 10;
+
+        if (j == 10)
+            i = 1;
+        else
+            i = 0;
+
+        System.out.println(i);
+    }
+}
+```
+
 Variáveis não locais são iniciadas automaticamente. Utilizando o valor `0` para números inteiros, `0.0` para números com ponto flutuante, `false` para variáveis booleanas e `null` para as de referência.
+
+```java
+/* Compiles */
+public class Main {
+    static int i;
+    static double d;
+    static boolean b;
+    static String s;
+
+    public static void main(String[] args) {
+        System.out.println(i);
+        System.out.println(d);
+        System.out.println(b);
+        System.out.println(s);
+    }
+}
+```
+
+```java
+/* Compiles */
+public class Main {
+    static int i;
+    static double d;
+    static boolean b;
+    static String s;
+
+    public static void main(String[] args) {
+
+        AnotherClass ac = new AnotherClass();
+
+        System.out.println(ac.i);
+        System.out.println(ac.d);
+        System.out.println(ac.b);
+        System.out.println(ac.s);
+    }
+}
+
+class AnotherClass {
+    int i;
+    double d;
+    boolean b;
+    String s;
+}
+```
 
 # Conceitos citados pelo livro para entender melhor
 - [ ] `Facelets`.
