@@ -7,9 +7,16 @@ public class NumericPromotion {
 
         int i = 1;
         long l = 1L;
-        // int j = i + l; Esta linha não compila, dado que "i + l" é long.
+        int j = 0;
+        // j = i + l; Esta linha não compila, dado que "i + l" é long.
 
         System.out.println(j);
+
+        b += 1;
+        short s = --b;
+
+        System.out.println(b);
+        System.out.println(s);
     }
 
 }
