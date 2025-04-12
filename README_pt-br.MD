@@ -449,6 +449,99 @@ class AnotherClass {
 }
 ```
 
+# Tipos
+Listo aqui os tipos primitivos em Java.
+| TIPO      | TAMANHO |
+| --------- | ------- |
+| `boolean` | 1 bit   |
+| `byte`    | 8 bits  |
+| `char`    | 16 bits |
+| `short`   | 16 bits |
+| `int`     | 32 bits |
+| `float`   | 32 bits |
+| `long`    | 64 bits |
+| `double`  | 64 bits |
+
+# Promoção numérica
+Para avaliar expressões numéricas, o Java pode realizar conversão nos valores que estão sendo utilizados nos cálculos.
+
+## Unary operators
+Quando o tamanho do tipo for menor que `int`, seu valor será convertido para `int`(32 bits).
+
+```
+public class NumericPromotion {
+
+    public static void main(String[] args) {
+        byte b = 1;
+        short s = b;
+
+        System.out.println(s);
+    }
+
+}
+```
+
+No exemplo acima, `b` é um `byte`, com tamanho e 8 bits. `short` possui 16 bits. Ou seja, `b` cabe em `s`, portanto, o código compila e exibe `1` no terminal.
+
+```
+$ javac NumericPromotion.java
+$ java NumericPromotion
+1
+```
+
+Ao fazer o uso de operadores unários, o java realiza a conversão do tipo para `int`, uma promoção numérica, caso o tipo da variável seja menor que `int`.
+
+```
+public class NumericPromotion {
+
+    public static void main(String[] args) {
+        byte b = 1;
+        short s = -b; // linha atualizada
+
+        System.out.println(s);
+    }
+
+}
+```
+
+Não podemos compilar este programa, dado que `int` é maior que `short`.
+
+```
+$ javac NumericPromotion.java
+NumericPromotion.java:5: error: incompatible types: possible lossy conversion from int to short
+        short s = -b;
+                  ^
+1 error
+```
+
+## Binary operators
+Em operações com dois parâmetros (binary operators), as variáveis serão convertidas para para o maior tipo.
+
+```
+public class NumericPromotion {
+
+    public static void main(String[] args) {
+
+        int i = 1;
+        long l = 1L;
+        int j = i + l;
+
+        System.out.println(j);
+    }
+
+}
+```
+
+Não podemos compilar este programa, dado que `i + l` produz um resultado em `long`, que é maior que `int`.
+
+```
+$ javac NumericPromotion.java
+NumericPromotion.java:7: error: incompatible types: possible lossy conversion from long to int
+        int j = i + l;
+                  ^
+1 error
+```
+
 # Conceitos citados pelo livro para entender melhor
 - [ ] `Facelets`.
 - [ ] Diferença entre as linguagens procedurais e funcionais.
