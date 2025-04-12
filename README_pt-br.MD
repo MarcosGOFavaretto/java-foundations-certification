@@ -542,6 +542,35 @@ NumericPromotion.java:7: error: incompatible types: possible lossy conversion fr
 1 error
 ```
 
+## Casos especiais
+Vale ressaltar que operadores unários de incremento/decremento (`--` e `++`) e de atribuição composta (`+=`, `-=` e `+=`) não seguem as regras de promoção numérica.
+
+```java
+public class NumericPromotion {
+
+    public static void main(String[] args) {
+
+        byte b = 1;
+        b += 1;
+
+        System.out.println(b);
+
+        short s = --b;
+        System.out.println(s);
+    }
+
+}
+```
+
+A execução desta classe irá resultar em:
+
+```
+$ javac NumericPromotion.java
+2
+1
+```
+
+
 # Conceitos citados pelo livro para entender melhor
 - [ ] `Facelets`.
 - [ ] Diferença entre as linguagens procedurais e funcionais.
