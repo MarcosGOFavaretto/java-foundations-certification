@@ -546,6 +546,8 @@ NumericPromotion.java:7: error: incompatible types: possible lossy conversion fr
 - [ ] `Facelets`.
 - [ ] Diferença entre as linguagens procedurais e funcionais.
 - [ ] Java `RMI`.
+- [ ] Jakarta e Java Community Process.
+- [ ] Sandbox nativa.
 
 # Fontes
 - [OCFA Java Foundations Exam Fundamentals 1Z0-811: Study guide for Oracle Certified Foundations Associate, Java Certification](https://www.amazon.com/OCFA-Java-Foundations-Fundamentals-1Z0-811-ebook/dp/B08MVSBV86).
