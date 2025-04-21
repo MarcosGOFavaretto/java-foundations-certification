@@ -674,6 +674,50 @@ public class BitwiseOperators {
 
 > ¹ These operators associate from Right to Left.
 
+# Ordem de avaliação
+O java avalia expressões da esquerda para a direita, não importa a ordem dos operadores.
+
+```java
+public class EvaluationOrder {
+
+    public static void main(String[] args) throws Exception {
+        int result = getA() + getB() + ((getException()) + getC()); // getC will not be invoked!
+        System.out.println(result);
+    }
+
+    public static int getA() {
+        System.out.println("Method A invoked!");
+        return 1;
+    }
+
+    public static int getB() {
+        System.out.println("Method B invoked!");
+        return 1;
+    }
+
+    public static int getException() throws Exception {
+        throw new Exception("An Exception occurred!");
+    }
+
+    public static int getC() {
+        System.out.println("Method C invoked!");
+        return 1;
+    }
+
+}
+```
+Ao executar a apliação acima, a saída será:
+```
+$ javac EvaluationOrder.java
+$ java EvaluationOrder
+
+Method A invoked!
+Method B invoked!
+Exception in thread "main" java.lang.Exception: An Exception occurred!
+        at EvaluationOrder.getException(EvaluationOrder.java:18)
+        at EvaluationOrder.main(EvaluationOrder.java:3)
+```
+
 # Conceitos citados pelo livro para entender melhor
 - [ ] `Facelets`.
 - [ ] Diferença entre as linguagens procedurais e funcionais.
