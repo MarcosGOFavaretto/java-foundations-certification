@@ -652,6 +652,28 @@ public class BitwiseOperators {
 }
 ```
 
+# Ordem dos operadores.
+| Operator Name (In order of precedence from High to Low) | Operator |
+| ------------------------------------------------------- | -------- |
+| Array access, object creation, member access, method reference | `[]`, `new`, `.`, e `::`. |
+| postfix | `expr++ ` e `expr--`. |
+| ¹ Unary and pre-increment/pre-decrement | `+expr`, `-expr`, `!`, `~`, `++expr` e `--expr`. |
+| ¹ Cast | `()`. |
+| multiplicative | `*`, `/` e `%`. |
+| additive | `+` e `-`. |
+| shift | `<<`, `>>` e `>>>`. |
+| relational | `<`, `>`, `<=`, `>=` e `instanceof`. |
+| equality | `==` e `!=`. |
+| bitwise AND | `&`. |
+| bitwise exclusive OR | `^`. |
+| bitwise inclusive OR | `\|`. |
+| logical AND && logical OR | `\|\|`. |
+| ternary | `? :`. |
+| ¹ Assignment | `=`, `+=`, `-=`, `*=`, `/=`, `%=`, `&=`, `^=`, `\|=`, `<<=`, `>>=` e `>>>=`. |
+| ¹ Lambda and switch expression | `->`. |
+
+> ¹ These operators associate from Right to Left.
+
 # Conceitos citados pelo livro para entender melhor
 - [ ] `Facelets`.
 - [ ] Diferença entre as linguagens procedurais e funcionais.
