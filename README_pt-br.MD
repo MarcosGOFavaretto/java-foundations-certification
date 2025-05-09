@@ -718,6 +718,54 @@ Exception in thread "main" java.lang.Exception: An Exception occurred!
         at EvaluationOrder.main(EvaluationOrder.java:3)
 ```
 
+# Declaração de um for
+Apenas para constar, todas as seguintes estruturas de for são válidas em Java. Decidi incluir essa informação nas notas pelo fato de eu ainda não conhecer essas possibilidades.
+```java
+public class Main {
+    public static void main(String[] args) {
+        for (String s = null; s == null; System.out.println(s)) {
+            s = "Hello";
+        }
+
+        System.out.println();
+
+        for (int i = 0; true; System.out.println("Before: " + i), i++, System.out.println("After: " + i)) {
+            if (i == 5)
+                break;
+        }
+
+        System.out.println();
+
+        for (System.out.println("Starting for"); true;) {
+            break;
+        }
+
+        for ( /* Executado ao iniciar */ ; /* condição para decidir se o FOR deve ser executado */ ; /* Executado após cada iteração */ ) {
+            break;
+        }
+    }
+}
+```
+
+A saída da execução da aplicação acima exibe o seguinte resultado no terminal:
+
+```
+Hello
+
+Before: 0
+After: 1
+Before: 1
+After: 2
+Before: 2
+After: 3
+Before: 3
+After: 4
+Before: 4
+After: 5
+
+Starting for
+```
+
 # Conceitos citados pelo livro para entender melhor
 - [ ] `Facelets`.
 - [ ] Diferença entre as linguagens procedurais e funcionais.
